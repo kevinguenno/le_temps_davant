@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_094755) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_135232) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "furnitures", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "category"
+    t.string "style"
+    t.string "finishing"
+    t.decimal "price"
+    t.integer "height"
+    t.integer "width"
+    t.integer "depth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "furniture_id", null: false
+    t.boolean "available"
+    t.date "order_date"
+    t.decimal "booking_price"
+    t.boolean "delivery"
+    t.date "delivery_date"
+    t.decimal "delivery_price"
+    t.decimal "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_orders_on_furniture_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_094755) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.integer "post_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "furnitures"
+  add_foreign_key "orders", "users"
 end
