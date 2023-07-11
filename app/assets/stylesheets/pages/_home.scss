@@ -1,1 +1,51 @@
-// Specific CSS for your home-page
+.background-png {
+  background-size: cover;
+  background-position: center;
+  // height: 100vh;
+  width: 100%;
+  background-image:
+  // linear-gradient(to left, #f8f4f412, #1a191991),
+  asset-url('Structure_2.png');
+}
+
+.title {
+  background-color: $orange;
+  padding: 150px;
+}
+
+.navbar {
+  margin-block: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.presentation {
+  margin-inline: 100px;
+  margin-block: 60px;
+}
+
+.footer {
+  background-color: $orange;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legal {
+  padding-block: 40px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-network {
+  padding-block: 40px;
+  padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  font-size: xx-large;
+}
+
+a {
+  text-decoration: none;
+}

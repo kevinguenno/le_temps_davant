@@ -128,6 +128,7 @@ GEM
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    lorem (0.1.2)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -258,6 +259,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
+  lorem (~> 0.1.2)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
